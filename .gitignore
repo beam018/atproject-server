@@ -1,0 +1,9 @@
+.idea
+.coverage
+*.pyc
+static
+media
+*.sh
+mysql-connector-*
+*.sql
+*.json

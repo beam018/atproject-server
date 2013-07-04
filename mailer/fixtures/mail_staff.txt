@@ -1,0 +1,11 @@
+Получена новая заявка на вакансию:
+    название: {job.name}
+    проект: {job.project}
+    город: {job.city}
+
+Соискатель:
+    {surname} {name}
+    {phone}
+    {email}
+
+{extra}

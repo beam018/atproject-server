@@ -1,0 +1,9 @@
+django-ckeditor
+south
+mysql-python
+Django
+Markdown
+PIL
+PyYAML
+django-filter
+djangorestframework
