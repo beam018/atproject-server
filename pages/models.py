@@ -14,6 +14,11 @@ class PageType(models.Model):
         return '%s' % self.name
 
 
+    class Meta:
+        verbose_name=_('page type')
+        verbose_name_plural=_('page types')
+
+
 class Page(models.Model):
     title = models.CharField(
         max_length=140,
@@ -40,3 +45,8 @@ class Page(models.Model):
 
     def __unicode__(self):
         return '%s' % self.title
+
+
+    class Meta:
+        verbose_name=_('page')
+        verbose_name_plural=_('pages')
