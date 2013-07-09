@@ -35,6 +35,7 @@ class Page(models.Model):
         verbose_name=_('background image'),
         upload_to='pages',
         default='',
+        blank=True,
     )
 
     content = RichTextField(
