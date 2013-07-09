@@ -3,20 +3,11 @@ from ckeditor.fields import RichTextField
 from django.utils.translation import ugettext as _
 
 
-class PageType(models.Model):
-    name = models.CharField(
-        max_length=140,
-        verbose_name=_('name'),
-        unique=True,
-    )
-
-    def __unicode__(self):
-        return '%s' % self.name
-
-
-    class Meta:
-        verbose_name=_('page type')
-        verbose_name_plural=_('page types')
+PAGE_TYPES = (
+    ('home', _('home')),
+    ('about', _('about')),
+    ('contacts', _('contacts')),
+)
 
 
 class Page(models.Model):
@@ -27,15 +18,23 @@ class Page(models.Model):
         verbose_name=_('title'),
     )
 
-    type = models.ForeignKey(
-        PageType,
+    type = models.CharField(
+        choices=PAGE_TYPES,
         verbose_name=_('type'),
-        to_field='name',
+        max_length=16,
+        default='home',
     )
 
     thumb = models.ImageField(
         verbose_name=_('thumb'),
+        upload_to='pages/thumbs',
+        default='',
+    )
+
+    background = models.ImageField(
+        verbose_name=_('background image'),
         upload_to='pages',
+        default='',
     )
 
     content = RichTextField(

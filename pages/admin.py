@@ -1,5 +1,4 @@
 from django.contrib import admin
-from pages.models import Page, PageType
+from pages.models import Page
 
-admin.site.register(PageType)
 admin.site.register(Page)
