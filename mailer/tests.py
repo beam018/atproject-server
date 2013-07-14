@@ -31,7 +31,7 @@ class EmailTest(TestCase):
         'phone': '89121234567',
         'email': 'user@example.com',
         'extra': 'lorem ipsum',
-        'resume': 'C:\\fakepath\\test.pdf'
+        'attachment': 'C:\\fakepath\\test.pdf'
     }
 
     def setUp(self):

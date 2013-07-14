@@ -87,7 +87,7 @@ class MailView(View):
             user_data['surname'] = p['surname']
             user_data['phone'] = p['phone']
             user_data['email'] = p['email']
-            user_data['resume'] = p['resume']
+            user_data['attachment'] = p['attachment']
         except KeyError:
             return HttpResponse('Data was broken.')
 
