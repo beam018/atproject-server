@@ -16,7 +16,6 @@ class PagesView(generics.ListAPIView):
     serializer_class = PageSerializer
 
     def get_queryset(self):
-        queryset = Page.objects.filter(type=self.kwargs['type'])
-        print(queryset)
+        queryset = Page.objects.filter(type=self.kwargs['type']).order_by('order_number')
 
         return queryset
