@@ -1,5 +1,7 @@
-from django.db import models
+# -*- coding: utf-8 -*-
+
 from ckeditor.fields import RichTextField
+from django.db import models
 from django.utils.translation import ugettext as _
 
 
@@ -7,15 +9,29 @@ PAGE_TYPES = (
     ('home', _('home')),
     ('about', _('about')),
     ('contacts', _('contacts')),
+    ('projects', _('projects')),
 )
 
 
 class Page(models.Model):
-    title = models.CharField(
-        max_length=140,
+    thumb = models.ImageField(
+        upload_to='thumbs',
+        verbose_name=_('page thumbnail'),
+    )
+
+    image = models.ImageField(
+        upload_to='pages',
+        verbose_name=_('page image'),
+    )
+
+    caption = models.CharField(
+        max_length=255,
+        verbose_name=_('Caption')
+    )
+
+    content = RichTextField(
         blank=True,
-        null=True,
-        verbose_name=_('title'),
+        verbose_name=_('Content'),
     )
 
     type = models.CharField(
@@ -25,28 +41,15 @@ class Page(models.Model):
         default='home',
     )
 
-    thumb = models.ImageField(
-        verbose_name=_('thumb'),
-        upload_to='pages/thumbs',
-        default='',
-    )
-
-    background = models.ImageField(
-        verbose_name=_('background image'),
-        upload_to='pages',
-        default='',
-        blank=True,
-    )
-
-    content = RichTextField(
-        blank=True,
-        verbose_name=_('content'),
+    order_number = models.IntegerField(
+        max_length=2,
+        verbose_name=_('order number'),
+        default=0,
     )
 
     def __unicode__(self):
-        return '%s' % self.title
-
+        return self.caption
 
     class Meta:
-        verbose_name=_('page')
-        verbose_name_plural=_('pages')
+        verbose_name = _('page')
+        verbose_name_plural = _('pages')

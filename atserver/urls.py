@@ -14,7 +14,6 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    (r'^v1/projects/', include('projects.urls')),
     (r'^v1/jobs/', include('career.urls')),
     (r'^v1/pages/', include('pages.urls')),
 )

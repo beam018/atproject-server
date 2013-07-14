@@ -8,45 +8,30 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'PageType'
-        db.create_table(u'pages_pagetype', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=140)),
-            ('url', self.gf('django.db.models.fields.CharField')(default='/', max_length=50, db_index=True)),
+        # Adding model 'Project'
+        db.create_table('projects_project', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('thumb', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
+            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
+            ('caption', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('content', self.gf('django.db.models.fields.TextField')()),
         ))
-        db.send_create_signal(u'pages', ['PageType'])
-
-        # Adding model 'Page'
-        db.create_table(u'pages_page', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
-            ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['pages.PageType'])),
-            ('content', self.gf('ckeditor.fields.RichTextField')(blank=True)),
-        ))
-        db.send_create_signal(u'pages', ['Page'])
+        db.send_create_signal('pages', ['Project'])
 
 
     def backwards(self, orm):
-        # Deleting model 'PageType'
-        db.delete_table(u'pages_pagetype')
-
-        # Deleting model 'Page'
-        db.delete_table(u'pages_page')
+        # Deleting model 'Project'
+        db.delete_table('projects_project')
 
 
     models = {
-        u'pages.page': {
-            'Meta': {'object_name': 'Page'},
-            'content': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
-            'type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['pages.PageType']"})
-        },
-        u'pages.pagetype': {
-            'Meta': {'object_name': 'PageType'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '140'}),
-            'url': ('django.db.models.fields.CharField', [], {'default': "'/'", 'max_length': '50', 'db_index': 'True'})
+        'pages.project': {
+            'Meta': {'object_name': 'Project'},
+            'caption': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'content': ('django.db.models.fields.TextField', [], {}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'thumb': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'})
         }
     }
 

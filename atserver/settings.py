@@ -154,10 +154,9 @@ INSTALLED_APPS = (
     'south',
     'rest_framework',
     'staff',
-    'projects',
+    'pages',
     'career',
     'mailer',
-    'pages',
 )
 
 # A sample logging configuration. The only tangible logging

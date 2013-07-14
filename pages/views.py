@@ -5,18 +5,18 @@ from rest_framework import generics
 from pages.models import Page
 from pages.serializers import PageSerializer
 
-
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        '': reverse('page-view', request=request),
+        'pages': reverse('pages-view', request=request),
     })
 
 
-class PageView(generics.ListAPIView):
+class PagesView(generics.ListAPIView):
     serializer_class = PageSerializer
 
     def get_queryset(self):
-        queryset = Page.objects.filter(type=self.kwargs['name'])
+        queryset = Page.objects.filter(type=self.kwargs['type'])
+        print(queryset)
 
         return queryset
