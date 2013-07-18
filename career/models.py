@@ -44,6 +44,12 @@ class JobCategory(models.Model):
         verbose_name=_('Content'),
     )
 
+    order_number = models.IntegerField(
+        max_length=2,
+        verbose_name=_('order number'),
+        default=0,
+    )
+
     def __unicode__(self):
         return self.name
 

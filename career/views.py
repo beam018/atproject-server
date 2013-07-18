@@ -26,9 +26,10 @@ class CityDetail(generics.RetrieveAPIView):
 
 
 class JobCategoryList(generics.ListAPIView):
-    model = JobCategory
     serializer_class = JobCategorySerializer
 
+    def get_queryset(self):
+        return JobCategory.objects.all().order_by('order_number')
 
 class JobCategoryDetail(generics.RetrieveAPIView):
     model = JobCategory
