@@ -136,7 +136,7 @@ TEMPLATE_DIRS = (
 )
 
 XS_SHARING_ALLOWED_ORIGINS = '*'
-XS_SHARING_ALLOWED_HEADERS = ('Authorization',)
+XS_SHARING_ALLOWED_HEADERS = ('accept', 'origin', 'x-requested-with',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

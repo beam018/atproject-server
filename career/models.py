@@ -44,6 +44,11 @@ class JobCategory(models.Model):
         verbose_name=_('Content'),
     )
 
+    no_jobs_text = RichTextField(
+        blank=True,
+        verbose_name=_('no jobs text'),
+    )
+
     order_number = models.IntegerField(
         max_length=2,
         verbose_name=_('order number'),
