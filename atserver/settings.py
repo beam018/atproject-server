@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django.contrib.flatpages',
     'ckeditor',
+    'reversion',
     'south',
     'rest_framework',
     'staff',

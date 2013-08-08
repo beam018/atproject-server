@@ -1,10 +1,11 @@
 from django.contrib import admin
+import reversion
 from career.models import Job, JobCategory, City
 
 __author__ = 'beam'
 
 
-class JobAdmin(admin.ModelAdmin):
+class JobAdmin(reversion.VersionAdmin):
     list_display = (
         'name',
         'city',
@@ -35,11 +36,11 @@ class JobAdmin(admin.ModelAdmin):
         obj.save()
 
 
-class JobCategoryAdmin(admin.ModelAdmin):
+class JobCategoryAdmin(reversion.VersionAdmin):
     pass
 
 
-class CityAdmin(admin.ModelAdmin):
+class CityAdmin(reversion.VersionAdmin):
     pass
 
 

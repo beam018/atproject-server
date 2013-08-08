@@ -7,3 +7,4 @@ PIL
 PyYAML
 django-filter
 djangorestframework
+django-reversion

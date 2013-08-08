@@ -1,10 +1,11 @@
 from django.contrib import admin
+import reversion
 from mailer.models import Mail
 
 __author__ = 'beam'
 
 
-class MailAdmin(admin.ModelAdmin):
+class MailAdmin(reversion.VersionAdmin):
     pass
 
 
