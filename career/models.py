@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext as _
+from filebrowser.fields import FileBrowseField
 
 
 class City(models.Model):
@@ -28,15 +29,15 @@ class JobCategory(models.Model):
         verbose_name=_('Job category name'),
     )
 
-    thumb = models.ImageField(
-        upload_to='thumbs',
+    thumb = FileBrowseField(
         verbose_name=_('Job category thumbnail'),
+        max_length=32,
     )
 
-    background = models.ImageField(
-        upload_to='backgrounds',
+    background = FileBrowseField(
         blank=True,
         verbose_name=_('Job category background image'),
+        max_length=32,
     )
 
     content = RichTextField(

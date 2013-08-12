@@ -3,7 +3,7 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.translation import ugettext as _
-
+from filebrowser.fields import FileBrowseField
 
 PAGE_TYPES = (
     ('home', _('home')),
@@ -14,14 +14,14 @@ PAGE_TYPES = (
 
 
 class Page(models.Model):
-    thumb = models.ImageField(
-        upload_to='thumbs',
+    thumb = FileBrowseField(
         verbose_name=_('page thumbnail'),
+        max_length=32,
     )
 
-    image = models.ImageField(
-        upload_to='pages',
+    image = FileBrowseField(
         verbose_name=_('page image'),
+        max_length=32,
     )
 
     caption = models.CharField(

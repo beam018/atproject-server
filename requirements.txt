@@ -4,7 +4,10 @@ mysql-python
 Django
 Markdown
 PIL
+Pillow
 PyYAML
 django-filter
 djangorestframework
 django-reversion
+django-grappelli
+django-filebrowser

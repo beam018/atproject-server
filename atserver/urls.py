@@ -5,11 +5,14 @@ from mailer.views import MailView
 import settings
 
 from django.contrib import admin
+from filebrowser.sites import site
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^mail/$', csrf_exempt(MailView.as_view())),
+    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/', include(admin.site.urls)),
 )
 
