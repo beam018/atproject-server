@@ -48,11 +48,13 @@ class JobCategory(models.Model):
     no_jobs_text = RichTextField(
         blank=True,
         verbose_name=_('no jobs text'),
+        help_text=_("this text has displayed if category has no jobs"),
     )
 
     order_number = models.IntegerField(
         max_length=2,
         verbose_name=_('order number'),
+        help_text=_('position number on first career page'),
         default=0,
     )
 

@@ -125,6 +125,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'atserver.urls'
 
+GRAPPELLI_ADMIN_TITLE = 'Allods team'
+
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'atserver.wsgi.application'
 

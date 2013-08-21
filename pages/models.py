@@ -10,6 +10,7 @@ PAGE_TYPES = (
     ('about', _('about')),
     ('contacts', _('contacts')),
     ('projects', _('projects')),
+    ('404', _('404')),
 )
 
 

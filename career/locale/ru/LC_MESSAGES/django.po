@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-04 20:13+0400\n"
+"POT-Creation-Date: 2013-08-22 01:51+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: models.py:13
+#: models.py:14
 msgid "City name"
 msgstr "Название города"
 
-#: models.py:21
+#: models.py:22
 msgid "city"
 msgstr "город"
 
-#: models.py:22
+#: models.py:23
 msgid "cities"
 msgstr "города"
 
-#: models.py:28
+#: models.py:29
 msgid "Job category name"
 msgstr "Название категории вакансии"
 
@@ -43,90 +43,106 @@ msgstr "Превью категории вакансии"
 msgid "Job category background image"
 msgstr "Фон категории вакансии"
 
-#: models.py:44
+#: models.py:45
 msgid "Content"
 msgstr "Контент"
 
-#: models.py:52
+#: models.py:50
+msgid "no jobs text"
+msgstr "текс пустой категории"
+
+#: models.py:51
+msgid "this text has displayed if category has no jobs"
+msgstr "текст, показываемый при отсутсвии вакансий в данной категории"
+
+#: models.py:56
+msgid "order number"
+msgstr "порядковый номер"
+
+#: models.py:57
+msgid "position number on first career page"
+msgstr "позиция категории на главной странице раздела \"вакансии\""
+
+#: models.py:66
 msgid "job category"
 msgstr "категория вакансии"
 
-#: models.py:53
+#: models.py:67
 msgid "job categories"
 msgstr "категории вакансий"
 
-#: models.py:57
+#: models.py:71
 msgid "Published"
 msgstr "Опубликована"
 
-#: models.py:58
+#: models.py:72
 msgid "Not published"
 msgstr "Не опубликована"
 
-#: models.py:59
+#: models.py:73
 msgid "Close"
 msgstr "Закрыта"
 
-#: models.py:66
+#: models.py:80
 msgid "Job name"
 msgstr "Название должности"
 
-#: models.py:74
+#: models.py:88
 msgid "Project name"
 msgstr "Название проекта"
 
-#: models.py:81
+#: models.py:95
 msgid "City"
 msgstr "Город"
 
-#: models.py:87
+#: models.py:101
 msgid "Job category"
 msgstr "Категория"
 
-#: models.py:93
+#: models.py:107
 msgid "Employer"
 msgstr "Наниматель"
 
-#: models.py:100
+#: models.py:114
 msgid "Status"
 msgstr "Статус"
 
-#: models.py:105
+#: models.py:119
 msgid "Top content"
 msgstr "Описание проекта или отдела"
 
-#: models.py:110
+#: models.py:124
 msgid "Requirements"
 msgstr "Обязанности"
 
-#: models.py:115
+#: models.py:129
 msgid "Skills"
 msgstr "Обязательные требования"
 
-#: models.py:120
+#: models.py:134
 msgid "Desired skills"
 msgstr "Желательные требования"
 
-#: models.py:125
+#: models.py:139
 msgid "Bottom content"
 msgstr "Мы предлагаем"
 
-#: models.py:131
+#: models.py:145
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: models.py:140
+#: models.py:154
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:147
+#: models.py:161
 msgid "Mailing list"
 msgstr "Адреса рассылки"
 
-#: models.py:155
+#: models.py:169
 msgid "job"
 msgstr "вакансия"
 
-#: models.py:156
+#: models.py:170
 msgid "jobs"
 msgstr "вакансии"
