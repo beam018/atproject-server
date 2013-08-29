@@ -7,6 +7,7 @@ from filebrowser.fields import FileBrowseField
 
 PAGE_TYPES = (
     ('home', _('home')),
+    ('posts', _('posts')),
     ('about', _('about')),
     ('contacts', _('contacts')),
     ('projects', _('projects')),

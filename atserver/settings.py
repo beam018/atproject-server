@@ -162,6 +162,7 @@ INSTALLED_APPS = (
     'pages',
     'career',
     'mailer',
+    'posts',
 )
 
 # A sample logging configuration. The only tangible logging

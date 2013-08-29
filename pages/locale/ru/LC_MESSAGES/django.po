@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-22 01:55+0400\n"
+"POT-Creation-Date: 2013-08-26 04:22+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,49 +24,53 @@ msgid "home"
 msgstr "главная"
 
 #: models.py:10
+msgid "posts"
+msgstr "статьи"
+
+#: models.py:11
 msgid "about"
 msgstr "о нас"
 
-#: models.py:11
+#: models.py:12
 msgid "contacts"
 msgstr "контакты"
 
-#: models.py:12
+#: models.py:13
 msgid "projects"
 msgstr "проекты"
 
-#: models.py:13
+#: models.py:14
 msgid "404"
 msgstr "404"
 
-#: models.py:19
+#: models.py:20
 msgid "page thumbnail"
 msgstr "превью страницы"
 
-#: models.py:24
+#: models.py:25
 msgid "page image"
 msgstr "фон страницы"
 
-#: models.py:30
+#: models.py:31
 msgid "Caption"
 msgstr "заголовок"
 
-#: models.py:35
+#: models.py:36
 msgid "Content"
 msgstr "контент"
 
-#: models.py:40
+#: models.py:41
 msgid "type"
 msgstr "тип страницы"
 
-#: models.py:47
+#: models.py:48
 msgid "order number"
 msgstr "порадковый номер страницы"
 
-#: models.py:55
+#: models.py:56
 msgid "page"
 msgstr "страница"
 
-#: models.py:56
+#: models.py:57
 msgid "pages"
 msgstr "страницы"
