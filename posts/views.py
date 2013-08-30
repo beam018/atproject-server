@@ -16,5 +16,5 @@ class PostsView(generics.ListAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        queryset = Post.objects.prefetch_related('post_type')
+        queryset = Post.objects.all().order_by('-pub_date')
         return queryset
