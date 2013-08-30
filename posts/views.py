@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework import generics
-from posts.models import Post
+from posts.models import Post, PostType, PostPlace
 from posts.serializers import PostSerializer
 
 @api_view(['GET'])
@@ -16,6 +16,5 @@ class PostsView(generics.ListAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        queryset = Post.objects.all()
-
+        queryset = Post.objects.prefetch_related('post_type')
         return queryset
