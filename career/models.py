@@ -31,13 +31,13 @@ class JobCategory(models.Model):
 
     thumb = FileBrowseField(
         verbose_name=_('Job category thumbnail'),
-        max_length=32,
+        max_length=255,
     )
 
     background = FileBrowseField(
         blank=True,
         verbose_name=_('Job category background image'),
-        max_length=32,
+        max_length=255,
     )
 
     content = RichTextField(

@@ -17,12 +17,12 @@ PAGE_TYPES = (
 class Page(models.Model):
     thumb = FileBrowseField(
         verbose_name=_('page thumbnail'),
-        max_length=32,
+        max_length=255,
     )
 
     image = FileBrowseField(
         verbose_name=_('page image'),
-        max_length=32,
+        max_length=255,
     )
 
     caption = models.CharField(

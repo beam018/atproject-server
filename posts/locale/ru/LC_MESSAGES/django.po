@@ -33,7 +33,7 @@ msgstr "типы статьи"
 
 #: models.py:33
 msgid "post place"
-msgstr "мето публикации"
+msgstr "место публикации"
 
 #: models.py:34
 msgid "post places"
