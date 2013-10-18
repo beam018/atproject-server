@@ -21,6 +21,7 @@ from atserver.settings import MAILER_EMAIL_FROM
 MAIL_TYPE_CLIENT = 'c'
 MAIL_TYPE_STAFF = 's'
 
+
 class MailView(View):
     @staticmethod
     def validate_request(request):
@@ -164,7 +165,7 @@ class MailView(View):
 
         if tmp_file:
             staff_message.attach_file(
-                os.path.join(settings.MEDIA_ROOT, 'mail', tmp_file)
+                os.path.join(settings.MEDIA_ROOT, 'mail', unicode(tmp_file))
             )
 
         to_list = []
@@ -176,7 +177,7 @@ class MailView(View):
         for to in to_list:
             try:
                 validate_email(to)
-                staff_message.to = [to,]
+                staff_message.to = [to, ]
                 staff_message.send()
             except ValidationError:
                 logging.warning('wrong mail - %s' % to)
