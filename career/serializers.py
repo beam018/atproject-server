@@ -9,14 +9,18 @@ class JobCategorySerializer(serializers.ModelSerializer):
         model = JobCategory
 
 
+class CitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+
+
 class JobSerializer(serializers.ModelSerializer):
+    city = serializers.RelatedField()
+    category = JobCategorySerializer()
+
+
     class Meta:
         model = Job
         exclude = (
             'creation_date', 'employer', 'status', 'user', 'mailer',
         )
-
-
-class CitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = City
