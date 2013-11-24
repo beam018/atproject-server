@@ -37,7 +37,7 @@ class JobAdmin(reversion.VersionAdmin):
 
 
 class JobCategoryAdmin(reversion.VersionAdmin):
-    pass
+    exclude=('count',)
 
 
 class CityAdmin(reversion.VersionAdmin):

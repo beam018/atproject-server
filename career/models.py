@@ -58,8 +58,23 @@ class JobCategory(models.Model):
         default=0,
     )
 
+    count = models.PositiveIntegerField(
+        default=0,
+        verbose_name=_('count'),
+    )
+
     def __unicode__(self):
         return self.name
+
+    def update_count(self):
+        self.count = len( Job.objects.filter(
+            category__id = self.id,
+            status = 'p',
+        ) )
+
+    def save(self):
+        self.update_count()
+        super(JobCategory, self).save()
 
 
     class Meta:
@@ -163,6 +178,13 @@ class Job(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def save(self):
+        # self.count = len( Job.objects.filter( category__id=self.id ) )
+        super(Job, self).save()
+        category = JobCategory.objects.get( id=self.category.id )
+        category.update_count()
+        category.save()
 
 
     class Meta:
