@@ -21,6 +21,7 @@ from atserver.settings import MAILER_EMAIL_FROM
 MAIL_TYPE_CLIENT = 'c'
 MAIL_TYPE_STAFF = 's'
 
+
 class MailView(View):
     @staticmethod
     def validate_request(request):
@@ -43,7 +44,7 @@ class MailView(View):
         r = request.POST
 
         for field, value in r.iteritems():
-            if not field == 'extra':
+            if not field == 'extra' and not field == 'attachment':
                 # all field exclude 'extra' must have value
                 if not value:
                     return False
@@ -81,20 +82,27 @@ class MailView(View):
     def post(self, request, *args, **kwargs):
         p = request.POST
 
+        print 0
+        print p
         user_data = {}
         try:
             user_data['name'] = p['name']
             user_data['surname'] = p['surname']
             user_data['phone'] = p['phone']
             user_data['email'] = p['email']
-            user_data['attachment'] = p['attachment']
+#            user_data['attachment'] = p['attachment']
+            user_data['attachment_link'] = p['attachment-link']
         except KeyError:
             return HttpResponse('Data was broken.')
+
+        print 1
 
         try:
             user_data['extra'] = p['extra']
         except KeyError:
             user_data['extra'] = ''
+
+        print 2
 
         try:
             p['job_id']
@@ -118,7 +126,7 @@ class MailView(View):
 
         # https://docs.djangoproject.com/en/dev/topics/email/#django.core.mail.EmailMessage
         message = EmailMessage(
-            msg.title,
+            msg.title.format(job=job),
             msg.template.format(job=job),
             MAILER_EMAIL_FROM,
             [user_data['email'],]
@@ -145,6 +153,7 @@ class MailView(View):
             surname = user_data['surname'],
             phone = user_data['phone'],
             email = user_data['email'],
+            attachment_link = user_data['attachment_link'],
 
             extra = user_data['extra'],
         )
@@ -153,6 +162,7 @@ class MailView(View):
         tmp_file = None
         try:
             data = request.FILES['attachment']
+            print str(data)
 
             path = default_storage.save(
                 'mail/%s' % request.FILES['attachment'],
@@ -164,7 +174,7 @@ class MailView(View):
 
         if tmp_file:
             staff_message.attach_file(
-                os.path.join(settings.MEDIA_ROOT, 'mail', tmp_file)
+                os.path.join(settings.MEDIA_ROOT, 'mail', unicode(tmp_file))
             )
 
         to_list = []
@@ -176,7 +186,7 @@ class MailView(View):
         for to in to_list:
             try:
                 validate_email(to)
-                staff_message.to = [to,]
+                staff_message.to = [to, ]
                 staff_message.send()
             except ValidationError:
                 logging.warning('wrong mail - %s' % to)
