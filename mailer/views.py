@@ -39,6 +39,7 @@ class MailView(View):
             * phone
             * email
             * attachment
+            * test
             extra
         """
         r = request.POST
@@ -92,17 +93,14 @@ class MailView(View):
             user_data['email'] = p['email']
 #            user_data['attachment'] = p['attachment']
             user_data['attachment_link'] = p['attachment-link']
+            user_data['test_link'] = p['test']
         except KeyError:
             return HttpResponse('Data was broken.')
-
-        print 1
 
         try:
             user_data['extra'] = p['extra']
         except KeyError:
             user_data['extra'] = ''
-
-        print 2
 
         try:
             p['job_id']
@@ -154,6 +152,7 @@ class MailView(View):
             phone = user_data['phone'],
             email = user_data['email'],
             attachment_link = user_data['attachment_link'],
+            test_link = user_data['test_link'],
 
             extra = user_data['extra'],
         )
@@ -162,7 +161,6 @@ class MailView(View):
         tmp_file = None
         try:
             data = request.FILES['attachment']
-            print str(data)
 
             path = default_storage.save(
                 'mail/%s' % request.FILES['attachment'],

@@ -7,6 +7,8 @@
     {surname} {name}
     {phone}
     {email}
+
     {attachment_link}
+    {test_link}
 
 {extra}
