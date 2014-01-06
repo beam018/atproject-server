@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import datetime
+from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -8,15 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'JobCategory.order_number'
-        db.add_column(u'career_jobcategory', 'order_number',
-                      self.gf('django.db.models.fields.IntegerField')(default=0, max_length=2),
+        # Adding field 'Job.test_task'
+        db.add_column(u'career_job', 'test_task',
+                      self.gf('filebrowser.fields.FileBrowseField')(default='', max_length=255),
                       keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting field 'JobCategory.order_number'
-        db.delete_column(u'career_jobcategory', 'order_number')
+        # Deleting field 'Job.test_task'
+        db.delete_column(u'career_job', 'test_task')
 
 
     models = {
@@ -59,7 +59,7 @@ class Migration(SchemaMigration):
             'bottom_content': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['career.JobCategory']", 'null': 'True'}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['career.City']", 'null': 'True', 'blank': 'True'}),
-            'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2013, 7, 18, 0, 0)'}),
+            'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 1, 6, 0, 0)'}),
             'desired_skills': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'employer': ('django.db.models.fields.CharField', [], {'max_length': '140', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -69,17 +69,20 @@ class Migration(SchemaMigration):
             'requirements': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'skills': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'status': ('django.db.models.fields.CharField', [], {'default': "'p'", 'max_length': '2'}),
+            'test_task': ('filebrowser.fields.FileBrowseField', [], {'default': "''", 'max_length': '255'}),
             'top_content': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': u"orm['auth.User']", 'null': 'True', 'blank': 'True'})
         },
         u'career.jobcategory': {
             'Meta': {'object_name': 'JobCategory'},
-            'background': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'blank': 'True'}),
+            'background': ('filebrowser.fields.FileBrowseField', [], {'max_length': '255', 'blank': 'True'}),
             'content': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
+            'count': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'no_jobs_text': ('ckeditor.fields.RichTextField', [], {'blank': 'True'}),
             'order_number': ('django.db.models.fields.IntegerField', [], {'default': '0', 'max_length': '2'}),
-            'thumb': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'})
+            'thumb': ('filebrowser.fields.FileBrowseField', [], {'max_length': '255'})
         },
         u'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},

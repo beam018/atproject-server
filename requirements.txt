@@ -1,7 +1,7 @@
 django-ckeditor
 south
 mysql-python
-Django
+Django==1.5.1
 Markdown
 PIL
 Pillow
@@ -9,5 +9,5 @@ PyYAML
 django-filter
 djangorestframework
 django-reversion
-django-grappelli
+django-grappelli==2.4.8
 django-filebrowser

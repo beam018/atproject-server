@@ -17,7 +17,6 @@ class City(models.Model):
     def __unicode__(self):
         return self.city_name
 
-
     class Meta:
         verbose_name = _('city')
         verbose_name_plural = _('cities')
@@ -67,15 +66,14 @@ class JobCategory(models.Model):
         return self.name
 
     def update_count(self):
-        self.count = len( Job.objects.filter(
-            category__id = self.id,
-            status = 'p',
-        ) )
+        self.count = len(Job.objects.filter(
+            category__id=self.id,
+            status='p',
+        ))
 
     def save(self):
         self.update_count()
         super(JobCategory, self).save()
-
 
     class Meta:
         verbose_name = _('job category')
@@ -154,6 +152,12 @@ class Job(models.Model):
         verbose_name=_('Bottom content'),
     )
 
+    test_task = FileBrowseField(
+        _('test task'),
+        max_length=255,
+        default='',
+    )
+
     creation_date = models.DateTimeField(
         default=datetime.now(),
         editable=False,
@@ -182,10 +186,9 @@ class Job(models.Model):
     def save(self):
         # self.count = len( Job.objects.filter( category__id=self.id ) )
         super(Job, self).save()
-        category = JobCategory.objects.get( id=self.category.id )
+        category = JobCategory.objects.get(id=self.category.id)
         category.update_count()
         category.save()
-
 
     class Meta:
         verbose_name = _('job')
