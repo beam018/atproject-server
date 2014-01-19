@@ -121,6 +121,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'staff.middleware.XsSharing',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'atserver.urls'
@@ -150,6 +151,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'grappelli',
     'filebrowser',
+    'debug_toolbar',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

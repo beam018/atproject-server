@@ -156,6 +156,7 @@ class Job(models.Model):
         _('test task'),
         max_length=255,
         default='',
+        blank=True,
     )
 
     creation_date = models.DateTimeField(

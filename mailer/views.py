@@ -83,8 +83,6 @@ class MailView(View):
     def post(self, request, *args, **kwargs):
         p = request.POST
 
-        print 0
-        print p
         user_data = {}
         try:
             user_data['name'] = p['name']
@@ -93,14 +91,15 @@ class MailView(View):
             user_data['email'] = p['email']
 #            user_data['attachment'] = p['attachment']
             user_data['attachment_link'] = p['attachment-link']
-            user_data['test_link'] = p['test']
         except KeyError:
             return HttpResponse('Data was broken.')
 
         try:
+            user_data['test_link'] = p['test']
             user_data['extra'] = p['extra']
         except KeyError:
             user_data['extra'] = ''
+            user_data['test_link'] = ''
 
         try:
             p['job_id']
@@ -152,8 +151,8 @@ class MailView(View):
             phone = user_data['phone'],
             email = user_data['email'],
             attachment_link = user_data['attachment_link'],
-            test_link = user_data['test_link'],
 
+            test_link = user_data['test_link'],
             extra = user_data['extra'],
         )
         staff_message.from_email = MAILER_EMAIL_FROM

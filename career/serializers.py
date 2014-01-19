@@ -18,7 +18,6 @@ class JobSerializer(serializers.ModelSerializer):
     city = serializers.RelatedField()
     category = JobCategorySerializer()
 
-
     class Meta:
         model = Job
         exclude = (
