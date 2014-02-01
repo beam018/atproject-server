@@ -42,6 +42,12 @@ class Page(models.Model):
         default='home',
     )
 
+    no_jobs_text = RichTextField(
+        blank=True,
+        verbose_name=_('no jobs text'),
+        help_text=_("this text has displayed if category has no jobs"),
+    )
+
     order_number = models.IntegerField(
         max_length=2,
         verbose_name=_('order number'),
